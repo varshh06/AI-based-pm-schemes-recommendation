@@ -212,7 +212,7 @@ body {
 
 .primary-btn {
   background-color: var(--button-bg);
-  color: var(--light-text);
+  color: white;
   box-shadow: 0 4px 8px rgba(51, 102, 255, 0.4);
   margin-bottom: 1rem;
 }
@@ -457,3 +457,4 @@ body {
   box-shadow: 0 4px 8px rgba(51, 102, 255, 0.4);
   margin-bottom: 0; /* Remove bottom margin since this is the last element */
 }
+
