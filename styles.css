@@ -1,0 +1,459 @@
+/*
+ * General Reset and Mobile First Styling
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Define primary colors */
+  --primary-blue: #3366ff;
+  --dark-text: #333333;
+  --light-text: #ffffff;
+  --card-bg: #ffffff;
+  --button-bg: #3366ff;
+  --google-border: #cccccc;
+
+  /* Font size base for rem calculation */
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* * Page Container Styling: Full-screen blue background and centering
+ */
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-blue);
+
+  /* Flexbox for layout */
+  display: flex;
+  flex-direction: column; /* Stack header, nav, and card vertically */
+  align-items: center; /* Center horizontally */
+
+  /* Adjust vertical positioning: content sits a bit higher than dead center */
+  padding-top: 10vh;
+}
+
+/*
+ * Header Section
+ */
+.header-logo {
+  text-align: center;
+  color: var(--light-text);
+  margin-bottom: 2rem;
+}
+
+.emblem-logo {
+  width: 30px;
+  height: auto;
+  margin-bottom: 0.1rem;
+}
+
+.main-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.ministry-text {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+}
+
+/*
+ * Toggle Navigation (LOG IN / SIGN UP)
+ */
+.auth-toggle {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 25px;
+  padding: 3px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn {
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--dark-text);
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.toggle-btn.active {
+  background-color: var(--button-bg);
+  color: var(--light-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * Login Card
+ */
+.login-card {
+  width: 90%; /* Take up most of the compact width */
+  max-width: 360px; /* Max width for compact screen design */
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ * Input Group Styling
+ */
+.input-group {
+  position: relative;
+  margin-bottom: 2.5rem; /* Space between input fields */
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--dark-text);
+  outline: none; /* Remove default focus outline */
+  z-index: 2; /* Keep input above label */
+}
+
+.input-group label {
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  color: #999999;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  font-size: 1rem;
+  /* Move label up when input is focused or has content */
+  transform-origin: left top;
+}
+
+/* Label movement effects (for exact replication) */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+  top: -1rem;
+  font-size: 0.8rem;
+  color: var(--primary-blue);
+}
+
+/* Input Underline */
+.input-underline {
+  border: none;
+  height: 1px;
+  background-color: var(--google-border);
+  margin: 0;
+  width: 100%;
+}
+
+.input-group input:focus ~ .input-underline {
+  background-color: var(--primary-blue);
+}
+
+/* Password Group specific styles */
+.password-group {
+  margin-bottom: 0.5rem; /* Reduced margin to fit forgot password link */
+}
+
+.eye-icon {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  color: #999999;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--primary-blue);
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+/*
+ * Button Styling
+ */
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-btn {
+  background-color: var(--button-bg);
+  color: var(--light-text);
+  box-shadow: 0 4px 8px rgba(51, 102, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+/* Google Login Button */
+.google-btn {
+  background-color: var(--card-bg);
+  color: var(--dark-text);
+  border: 1px solid var(--google-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem;
+  margin-top: 0.5rem; /* Reduced top margin from previous button */
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/*
+ * Sign Up Prompt
+ */
+.signup-prompt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  margin-top: 1.5rem;
+}
+
+.signup-link {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+/*
+ * General Reset and Mobile First Styling (Reuse from Compact - 2)
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Define primary colors */
+  --primary-blue: #3366ff;
+  --dark-text: #333333;
+  --light-text: #ffffff;
+  --card-bg: #ffffff;
+  --button-bg: #3366ff;
+  --google-border: #cccccc;
+
+  /* Font size base for rem calculation */
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* * Page Container Styling: Full-screen blue background and centering
+ */
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-blue);
+
+  /* Flexbox for layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 10vh;
+}
+
+/*
+ * Header Section
+ */
+.header-logo {
+  text-align: center;
+  color: var(--light-text);
+  margin-bottom: 2rem;
+}
+
+.emblem-logo {
+  width: 30px;
+  height: auto;
+  margin-bottom: 0.25rem;
+}
+
+.main-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.ministry-text {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+}
+
+/*
+ * Toggle Navigation (LOG IN / SIGN UP) - Active state is on SIGN UP
+ */
+.auth-toggle {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 25px;
+  padding: 3px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn {
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--dark-text);
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+  background-color: var(--button-bg);
+  color: var(--light-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * Sign Up Card (Identical styling to Login Card)
+ */
+.signup-card {
+  width: 90%;
+  max-width: 360px;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ * Input Group Styling (All identical to previous screen)
+ */
+.input-group {
+  position: relative;
+  margin-bottom: 2.5rem; /* Space between input fields */
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--dark-text);
+  outline: none;
+  z-index: 2;
+}
+
+.input-group label {
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  color: #999999;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  font-size: 1rem;
+  transform-origin: left top;
+}
+
+/* Label movement effects */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+  top: -1rem;
+  font-size: 0.8rem;
+  color: var(--primary-blue);
+}
+
+/* Input Underline */
+.input-underline {
+  border: none;
+  height: 1px;
+  background-color: var(--google-border);
+  margin: 0;
+  width: 100%;
+}
+
+.input-group input:focus ~ .input-underline {
+  background-color: var(--primary-blue);
+}
+
+/* Password Group specific styles */
+.password-group {
+  /* Standard margin for password fields in the sign-up flow */
+  margin-bottom: 2.5rem;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  color: #999999;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/*
+ * Primary Sign Up Button Styling
+ */
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem; /* Closer to the last input field */
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-btn {
+  background-color: var(--button-bg);
+  color: var(--light-text);
+  box-shadow: 0 4px 8px rgba(51, 102, 255, 0.4);
+  margin-bottom: 0; /* Remove bottom margin since this is the last element */
+}

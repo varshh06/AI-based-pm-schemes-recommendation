@@ -1,0 +1,261 @@
+/*
+ * General Reset and Variables
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors from the prototype */
+  --primary-blue: #3366ff;
+  --light-blue: #e6f0ff; /* Approximation of the nav background */
+  --dark-text: #1a1a1a;
+  --white: #ffffff;
+  --card-bg-1: #0022cc; /* Dark blue for card 1 */
+  --card-bg-2: #0022cc; /* Dark blue for card 2 (same as 1) */
+  --card-bg-3: #0022cc; /* Dark blue for card 3 (same as 1) */
+  --cta-pink: #f06292; /* Approximation of the 'To see more' button color */
+
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body {
+  background-color: #f0f0f0; /* Light gray background to show card separation */
+  height: 100%;
+}
+
+.page-container {
+  width: 100%;
+}
+
+/* * Top Header Bar (Blue Background)
+ */
+.top-header {
+  background-color: var(--primary-blue);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.emblem-logo-small {
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.header-text {
+  line-height: 1;
+}
+
+.header-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.header-ministry {
+  font-size: 0.55rem;
+  font-weight: 300;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.icon-placeholder {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.youtube-icon {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+}
+.x-icon {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+.user-icon {
+  background-color: var(--white);
+  color: #999;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.language-select {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+
+/* * Main Navigation Bar
+ */
+.main-nav {
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: right;
+  margin-right: 60px;
+  padding: 0.5rem 0;
+  overflow-x: auto; /* Allows scrolling on compact screens */
+  white-space: nowrap; /* Prevents wrapping */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark-text);
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  margin-right: 20px;
+}
+
+.nav-link.active {
+  color: var(--primary-blue);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-blue);
+}
+
+/* * Main Content Area
+ */
+.content-area {
+  padding: 1.5rem 1rem;
+  background-color: var(--primary-blue);
+  /* Creates the blue strip at the top of the content area */
+  padding-top: 1.5rem;
+  border-bottom: 100px solid #f0f0f0; /* Use border to fake the bottom light gray area */
+}
+
+.main-heading {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 5%;
+}
+
+/* * Information Cards Layout (Vertical Stack for Compact)
+ */
+.cards-wrapper {
+  display: flex;
+  flex-direction: row; /* Stack cards vertically */
+  gap: 50px; /* Space between the cards */
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-left: 50px;
+}
+
+.info-card {
+  background-color: var(--card-bg-1);
+  color: var(--white);
+  width: 100%;
+  max-width: 380px; /* Constrain width for a compact look */
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  /* Placeholder for the icon image positioning */
+  display: block;
+  margin: 0 auto 10px auto;
+  /* NOTE: You will need to replace this with your specific icons (Briefcase, Clock, Clipboard) */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.info-list {
+  list-style: none; /* Remove default bullet points */
+  padding-left: 0;
+}
+
+.info-list li {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-weight: 400;
+}
+
+/* Custom bullet point styling (a small white circle) */
+.info-list li::before {
+  content: "•";
+  color: var(--white);
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.list-label {
+  font-weight: 700; /* Bold text inside list items where shown */
+}
+
+/* * "To see more" Button 
+ */
+.see-more-btn {
+  background-color: var(--cta-pink);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Position the button slightly lower to hover over the blue/gray boundary */
+  transform: translateY(50%);
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}

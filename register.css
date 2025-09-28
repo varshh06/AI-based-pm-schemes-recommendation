@@ -1,0 +1,307 @@
+/*
+ * General Reset and Variables (Reuse from Compact - 5)
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-blue: #3366ff;
+  --light-blue: #e6f0ff;
+  --dark-text: #1a1a1a;
+  --white: #ffffff;
+  --card-bg: #ffffff;
+  --input-border: #cccccc;
+  --button-bg: #1a00cc; /* Deeper blue for the Register button */
+
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+.page-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* * Header and Navigation Styling (Reused from Compact-5)
+ * NOTE: Ensure the full CSS for Compact-5 is included before this section
+ */
+
+/* Top Header Bar */
+.top-header {
+  background-color: var(--primary-blue);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.emblem-logo-small {
+  width: 20px;
+  margin-right: 8px;
+}
+.header-text {
+  line-height: 1;
+}
+.header-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.header-ministry {
+  font-size: 0.55rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.icon-placeholder {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.x-icon {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+.youtube-icon {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+.user-icon {
+  background-color: var(--white);
+  color: #999;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+.language-select {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+
+/* Main Navigation Bar */
+.main-nav {
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0;
+  overflow-x: auto;
+  margin-right: 80px;
+  white-space: nowrap;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark-text);
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  margin-right: 20px;
+}
+
+.nav-link.active {
+  color: var(--primary-blue);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-blue);
+}
+
+/* * Main Content Area with Background Image
+ */
+.content-area {
+  /* Placeholder for the background image visible beneath the form */
+  background-image: url("abstract-board-background-placeholder.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Optional: Makes background static as you scroll */
+  min-height: calc(
+    100vh - 70px
+  ); /* Fill remaining height (approx 70px for header/nav) */
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Start content near the top */
+}
+
+/* * Registration Card
+ */
+.registration-card {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* White card with slight transparency */
+  width: 95%;
+  max-width: 400px;
+  border-radius: 15px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Strong shadow to stand out from background */
+}
+
+.card-heading {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: 1.5rem;
+}
+
+/* * Form Elements
+ */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 0.3rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.6rem 0.5rem;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--dark-text);
+  background-color: var(--card-bg); /* Ensure background is white */
+  appearance: none; /* Remove default browser styling for select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Style for Select dropdown icon */
+.form-group select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.6c-5%200-9.3%201.8-13.2%205.4A17.6%2017.6%200%200%200%200%2082.6c0%204.8%201.8%209.1%205.4%2013.2l128%20128c3.9%203.9%208.2%205.8%2013.2%205.8s9.3-1.9%2013.2-5.8l128-128c3.6-4.1%205.4-8.4%205.4-13.2%200-4.8-1.8-9.1-5.4-13.2z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px 10px;
+}
+
+/* Register Button */
+.register-btn {
+  width: 60%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--button-bg);
+  color: var(--white);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark strip at the very bottom */
+.footer-strip {
+  height: 20px; /* Approximate height of the visible strip */
+  background-color: #333;
+  width: 100%;
+}
+/* ************************************ */
+/* * MODAL STYLING (NEW FOR COMPACT-7) * */
+/* ************************************ */
+
+/* Modal Overlay: Full screen, semi-transparent background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is above all other content */
+}
+
+/* Initially hidden state */
+.modal-overlay.hidden {
+  display: none;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #f0f0f0; /* Light gray background */
+  width: 80%;
+  max-width: 350px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  text-align: center;
+}
+
+/* Close Button (the 'X') */
+.close-btn {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* Modal Text */
+.modal-message-1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-top: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.modal-message-2 {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* * NOTE: All other styles from Compact-5 must be present 
+ * to render the background content correctly. 
+ * The modal automatically floats over that content due to `position: fixed;` and `z-index`.
+ */
