@@ -1,0 +1,233 @@
+/*
+ * General Reset and Variables
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors from the prototype */
+  --primary-blue: #3366ff;
+  --light-blue: #e6f0ff; /* Approximation of the nav background */
+  --dark-text: #1a1a1a;
+  --white: #ffffff;
+  --card-bg-1: #0022cc; /* Dark blue for card 1 */
+  --card-bg-2: #0022cc; /* Dark blue for card 2 (same as 1) */
+  --card-bg-3: #0022cc; /* Dark blue for card 3 (same as 1) */
+  --cta-pink: #f06292; /* Approximation of the 'To see more' button color */
+
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body {
+  background-color: #f0f0f0; /* Light gray background to show card separation */
+  height: 100%;
+}
+
+.page-container {
+  width: 100%;
+}
+
+/* * Top Header Bar (Blue Background)
+ */
+.top-header {
+  background-color: var(--primary-blue);
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.emblem-logo-small {
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.header-text {
+  line-height: 1;
+}
+
+.header-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.header-ministry {
+  font-size: 0.55rem;
+  font-weight: 300;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.icon-placeholder {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.youtube-icon {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+}
+.x-icon {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
+.user-icon {
+  background-color: var(--white);
+  color: #999;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.language-select {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+
+/* * Main Navigation Bar
+ */
+.main-nav {
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: right;
+  margin-right: 60px;
+  padding: 0.5rem 0;
+  overflow-x: auto; /* Allows scrolling on compact screens */
+  white-space: nowrap; /* Prevents wrapping */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark-text);
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  margin-right: 20px;
+}
+
+.nav-link.active {
+  color: var(--primary-blue);
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary-blue);
+}
+
+/* Table Container and Styling */
+.table-container {
+  background-color: rgba(
+    209,
+    198,
+    198,
+    0.95
+  ); /* Semi-transparent white background */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures borders/shadows are contained */
+  margin: 0 auto;
+  max-width: 95%; /* Adjust as needed */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.content-area {
+  padding: 30px 50px;
+  text-align: center;
+}
+
+.page-title {
+  color: #003366; /* Deep blue */
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  /* Simulating the white/light background effect on the title text */
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff;
+}
+
+/* Table Header */
+thead th {
+  background-color: #2196f3; /* Bright blue header color */
+  color: #fff;
+  font-weight: 500;
+  padding: 15px 10px;
+  border: 1px solid #1976d2; /* Slightly darker border for separation */
+  text-transform: uppercase;
+}
+
+/* Table Body Rows */
+tbody td {
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Alternating Row Color (Stripe Effect) */
+tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+/* Hover effect, optional but good practice */
+tbody tr:hover {
+  background-color: #e3f2fd;
+  cursor: default;
+}
+
+/* Specific Column Widths (Approximation) */
+/* This is optional and helps match the columns visually */
+tbody td:nth-child(1) {
+  width: 15%;
+} /* Internship Name */
+tbody td:nth-child(2) {
+  width: 15%;
+} /* Domain */
+tbody td:nth-child(3) {
+  width: 30%;
+} /* Skills Required */
+tbody td:nth-child(4) {
+  width: 12%;
+} /* Duration/mode */
+tbody td:nth-child(5) {
+  width: 28%;
+} /* Career */
